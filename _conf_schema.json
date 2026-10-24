@@ -1,0 +1,88 @@
+{
+  "natural_language": {
+    "description": "启用中文模糊触发",
+    "type": "bool",
+    "default": true,
+    "hint": "关闭后使用 /123share 分享、/123share 取；已开始的限时追问仍可继续。"
+  },
+  "allowed_users": {
+    "description": "允许使用的用户 ID",
+    "type": "list",
+    "default": [],
+    "hint": "空列表允许所有用户；公共 bot 建议设置白名单，防止滥用第三方服务。填写平台的发送者 ID。"
+  },
+  "enable_group": {
+    "description": "允许群聊使用",
+    "type": "bool",
+    "default": false,
+    "hint": "默认仅私聊。启用后，提取结果会发到原群聊，请注意隐私。"
+  },
+  "group_require_at": {
+    "description": "群聊自然语言请求需要唤醒或 @",
+    "type": "bool",
+    "default": true,
+    "hint": "显式 /123share 指令不受此限制；同一用户的限时后续内容无需再次 @。"
+  },
+  "burn_after_reading": {
+    "description": "分享默认启用阅后即焚",
+    "type": "bool",
+    "default": false,
+    "hint": "仅影响新分享。取件可能消耗远端内容，尤其是文件下载后发送失败时，不保证可再次下载。"
+  },
+  "followup_timeout": {
+    "description": "等待后续内容的秒数",
+    "type": "int",
+    "default": 120,
+    "slider": {"min": 15, "max": 600, "step": 15}
+  },
+  "recent_timeout": {
+    "description": "最近一条内容引用有效期（秒）",
+    "type": "int",
+    "default": 120,
+    "hint": "仅同一会话、同一用户，且主动说“分享这个/这份/这段”时使用；不会自动上传。",
+    "slider": {"min": 15, "max": 600, "step": 15}
+  },
+  "max_file_mb": {
+    "description": "单文件大小上限（MiB）",
+    "type": "int",
+    "default": 100,
+    "slider": {"min": 1, "max": 100, "step": 1}
+  },
+  "max_files_per_message": {
+    "description": "单次最多文件数",
+    "type": "int",
+    "default": 3,
+    "slider": {"min": 1, "max": 10, "step": 1}
+  },
+  "request_timeout": {
+    "description": "单次网络请求超时（秒）",
+    "type": "int",
+    "default": 120,
+    "slider": {"min": 10, "max": 600, "step": 10}
+  },
+  "cooldown_seconds": {
+    "description": "同一用户同一会话的传输间隔（秒）",
+    "type": "int",
+    "default": 3,
+    "slider": {"min": 0, "max": 60, "step": 1}
+  },
+  "file_retention_minutes": {
+    "description": "本地传输缓存保留时间（分钟）",
+    "type": "int",
+    "default": 30,
+    "hint": "为平台延迟读取预留时间；插件运行期间定时清理，重启后首次使用恢复清理。不删除平台原始附件。",
+    "slider": {"min": 5, "max": 120, "step": 5}
+  },
+  "download_hosts": {
+    "description": "额外允许的站点文件下载域名",
+    "type": "list",
+    "default": [],
+    "hint": "默认只允许 123share.cn 返回的同域文件。若未来使用 CDN，请核实域名后仅填写主机名，不填协议或路径。"
+  },
+  "allow_private_downloads": {
+    "description": "允许内网附件地址（高风险）",
+    "type": "bool",
+    "default": false,
+    "hint": "仅可信自建平台适配器有内网下载需求时开启。开启会解除网络连接的私网地址拦截，存在 SSRF 风险；应配合用户白名单。"
+  }
+}

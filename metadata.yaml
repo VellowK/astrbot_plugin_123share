@@ -1,0 +1,7 @@
+name: astrbot_plugin_123share
+display_name: 123share 极简快传
+desc: 通过中文模糊指令分享、提取 123share 极简快传的文件和文字，支持限时追问和引用消息。
+version: v1.0.0
+author: VellowK
+repo: https://github.com/VellowK/astrbot_plugin_123share
+astrbot_version: ">=4.16,<5"
